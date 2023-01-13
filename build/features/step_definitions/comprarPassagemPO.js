@@ -8,13 +8,15 @@ const HomePage = require("../../pages/HomePage");
 const chrome = require('selenium-webdriver/chrome');
 var { setDefaultTimeout } = require('@cucumber/cucumber');
 setDefaultTimeout(60 * 1000);
+const windowSize = { height: 1920, width: 1080 };
 (0, cucumber_1.Before)(async function () {
     const options = new chrome.Options().headless();
     this.driver = await new selenium_webdriver_1.Builder()
         .forBrowser('chrome')
+        .setChromeOptions(options)
         .build();
     this.driver.manage().setTimeouts({ implicit: 60000 });
-    this.driver.manage().window().maximize();
+    // this.driver.manage().window().maximize()
     this.homePage = new HomePage(this.driver);
 });
 (0, cucumber_1.After)(async function () {
