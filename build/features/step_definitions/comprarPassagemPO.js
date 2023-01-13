@@ -6,6 +6,8 @@ require("chromedriver");
 const chai_1 = require("chai");
 const HomePage = require("../../pages/HomePage");
 const chrome = require('selenium-webdriver/chrome');
+var { setDefaultTimeout } = require('@cucumber/cucumber');
+setDefaultTimeout(60 * 1000);
 (0, cucumber_1.Before)(async function () {
     const options = new chrome.Options().headless();
     this.driver = await new selenium_webdriver_1.Builder()

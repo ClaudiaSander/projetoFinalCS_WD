@@ -5,6 +5,10 @@ import { assert } from "chai"
 import HomePage = require ("../../pages/HomePage")
 const chrome = require('selenium-webdriver/chrome')
 
+var {setDefaultTimeout} = require('@cucumber/cucumber');
+
+setDefaultTimeout(60 * 1000);
+
 Before(async function () {
     const options = new chrome.Options().headless()
     
